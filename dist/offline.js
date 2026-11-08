@@ -6,6 +6,7 @@ let applying = false;
 let refreshing = false;
 function show(text, state) { status.textContent = text; status.dataset.state = state; }
 async function inspect() {
+  waiting();
   const controller = navigator.serviceWorker?.controller;
   if (!controller) return;
   const channel = new MessageChannel();

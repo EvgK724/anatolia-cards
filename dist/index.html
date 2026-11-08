@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#993e2b"><meta name="description" content="Малая Азия в один взгляд. 15 коротких историй о древних городах и святилищах: Дидимы, Эфес, Милет и другие.">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Малая Азия. В один взгляд</title>
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./icon-180.png">
+<link rel="preload" href="./fonts/golos-bold.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="./style.css">
+</head>
+<body data-theme="orange">
+<main id="app" aria-label="Малая Азия. Карточки об античности">
+<article id="card" aria-labelledby="city title" aria-describedby="body">
+<header class="card-header"><div><p class="eyebrow" id="region">Святилище Милета</p><h1 id="city">Дидимы</h1></div><span id="badge">История</span></header>
+<div class="story" id="story"><div class="fact"><p class="hero" id="hero" data-kind="number">500</p><p class="unit" id="unit">лет стройки, примерно</p></div><div class="copy"><h2 id="title">Так и не<br>закончили.</h2><p id="body">Храм Аполлона строили с перерывами около пяти веков. Грандиозный замысел остался незавершённым.</p></div></div>
+<nav class="card-nav" aria-label="Листание карточек"><button id="previous" class="arrow" aria-label="Предыдущая карточка">←</button><button id="menu" class="position" aria-label="Карточки и источники. Карточка 1 из 15"><span id="counter">01 / 15</span><span class="menu-word">Обзор</span></button><button id="next" class="arrow" aria-label="Следующая карточка">→</button></nav>
+</article>
+<p id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+</main>
+<dialog id="overview" aria-labelledby="dialog-title"><div class="dialog-head"><div><p class="eyebrow">В один взгляд</p><h2 id="dialog-title">Малая Азия</h2></div><button id="close" class="close" aria-label="Закрыть обзор">×</button></div>
+<div class="section-tabs" role="tablist" aria-label="Разделы обзора"><button role="tab" aria-selected="true" aria-controls="contents" id="tab-contents">Карточки</button><button role="tab" aria-selected="false" aria-controls="sources" id="tab-sources" tabindex="-1">Источники</button><button role="tab" aria-selected="false" aria-controls="install" id="tab-install" tabindex="-1">На телефон</button></div>
+<section id="contents" role="tabpanel" aria-labelledby="tab-contents"><p class="intro">7 мест. 15 историй.<br>Листайте влево или нажимайте стрелку.</p><div id="card-list"></div><p class="hint">На клавиатуре: ← → или пробел. Home к началу, End к последней карточке. Ваше место сохраняется в этом браузере.</p></section>
+<section id="sources" role="tabpanel" aria-labelledby="tab-sources" hidden><p class="intro">История, которую можно проверить.</p><p class="source-intro">Короткие авторские пересказы по материалам научных экспедиций, университетов, музеев и ЮНЕСКО. Приблизительные числа помечены. Легенда и исторический спор отмечены на самих карточках.</p><div id="source-list"></div></section>
+<section id="install" role="tabpanel" aria-labelledby="tab-install" hidden><div class="offline-copy"><p id="offline-status" role="status" aria-live="polite" data-state="saving">Сохраняем карточки на этом устройстве…</p><button id="apply-update" class="offline-action" hidden>Обновить, сохранив место</button><button id="retry-offline" class="offline-action" hidden>Повторить сохранение</button></div><p class="intro">Оставьте античность<br>на экране Домой.</p><ol><li>Откройте адрес приложения в Safari на iPhone.</li><li>Войдите в свой аккаунт ChatGPT, если появится запрос.</li><li>В меню «Поделиться» выберите «На экран Домой». Если доступно, включите «Открывать как веб-приложение», затем нажмите «Добавить».</li></ol><p>На Android откройте меню браузера и выберите «Добавить на главный экран» или «Установить приложение», если такой пункт доступен.</p><p class="hint">QR-код открывает адрес, но не устанавливает приложение. Дождитесь сообщения о сохранении перед отключением интернета. Все карточки и краткая справка с источниками сохраняются локально; внешние сайты источников требуют сети. Очистка данных браузера удалит копию. Если сайт запрашивает вход, первое открытие нужно выполнить онлайн. Установка зависит от браузера. Короткая вибрация работает только при поддержке браузером; Safari на iPhone её не предоставляет.</p></section>
+</dialog>
+<noscript><p class="noscript">Для листания карточек включите JavaScript в браузере.</p></noscript>
+<script type="module" src="./app.js"></script>
+<script type="module" src="./offline.js"></script>
+</body></html>

@@ -1,0 +1,44 @@
+name: Проверка и публикация приложения
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: anatolia-pages
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Собрать и проверить офлайн-копию
+        run: |
+          python3 scripts/build-offline.py
+          python3 validate.py
+          node --check dist/app.js
+          node --check dist/offline.js
+          node --check dist/sw.js
+          node tests/offline-worker.mjs
+          git diff --exit-code -- dist/sw.js
+  deploy:
+    if: github.event.repository.private == false
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - name: Опубликовать приложение
+        id: deployment
+        uses: actions/deploy-pages@v4
